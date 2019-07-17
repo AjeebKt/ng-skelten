@@ -30,7 +30,6 @@ export class ResponseInterceptor implements HttpInterceptor {
                 if (event instanceof HttpResponse) {
                     const response = <any>event.body;
                 }
-
             }),
             catchError((error: any, caught: Observable<any>): Observable<ErrorResponse | HttpErrorResponse> => {
                 const message = error.error ? (error.error.response || error.error.error_description) : error.error.error_description;

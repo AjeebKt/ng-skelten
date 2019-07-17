@@ -64,6 +64,11 @@ export class LeftNavBarComponent implements OnInit, OnDestroy {
     return true;
   }
   ngOnInit() {
+    // this.initialize();
+    // this.getLogo();
+  }
+
+  initialize() {
     try {
       if (sessionStorage.getItem('currentUser')) {
         const localData = sessionStorage.getItem('currentUser');
@@ -130,9 +135,7 @@ export class LeftNavBarComponent implements OnInit, OnDestroy {
       // const hospitalAppConfigID = !!response.user.hospital.hospitalAppConfig ? response.user.hospital.hospitalAppConfig.id : null;
       // this.gd.currentHospital = new Hospital(hospitalName, hospitalID, hospitalAppConfigID);
     });
-    this.getLogo();
   }
-
   getLogo() {
     this.loginService.getLogo().subscribe(res => {
       if (res.projectStatusCode === 'S1001') {

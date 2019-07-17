@@ -17,8 +17,9 @@ export class LoginService {
 
     const requestBody = 'username=' + user.username + '&password=' + user.password + '&grant_type=password';
 
-
+    // tslint:disable-next-line: max-line-length
     return this.http.post<TokenResponse>('/auth-service/oauth/token', requestBody);
+
 
     // return this.http.post<TokenResponse>('/oauth/token', requestBody);
   }

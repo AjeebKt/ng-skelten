@@ -30,6 +30,8 @@ export class AuthInterceptor implements HttpInterceptor {
         }
 
         if (!!token && !req.url.includes('oauth/token')) {
+            console.log('com on babeeee.............');
+
             let authHeader = new HttpHeaders();
             // console.log(, 'headers');
             authHeader = authHeader.append('Content-Type', 'application/json').append('Authorization', 'Bearer ' + token.toString());
@@ -41,7 +43,6 @@ export class AuthInterceptor implements HttpInterceptor {
         const anonymousReq = req.clone({ url: apiUrl, headers: headers });
         // if (!this.progressbarService.getStatus()) {
         //  }
-
         return next.handle(anonymousReq);
     }
 }

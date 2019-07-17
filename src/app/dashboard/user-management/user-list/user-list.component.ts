@@ -63,7 +63,7 @@ export class UserListComponent implements OnInit {
     // this.getDoctorsList();
     // this.getCaregiverList();
     this.page = this.gd.userIdToEdit ? this.gd.userIdToEdit.page : this.page;
-    this.getListOfPatients(this.page - 1);
+    // this.getListOfPatients(this.page - 1);
   }
   getListOfPatients(page) {
     this.userListService.getAllPatients(page).pipe(finalize(() => {

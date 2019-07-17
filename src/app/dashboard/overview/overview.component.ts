@@ -22,12 +22,12 @@ export class OverviewComponent implements OnInit, OnChanges {
   ) { }
 
   ngOnInit() {
-    this.getInitData();
-    this.getGrowth();
+    // this.getInitData();
+    // this.getGrowth();
   }
   ngOnChanges(change: SimpleChanges) {
-    this.getInitData();
-    this.getInitData();
+    // this.getInitData();
+    // this.getInitData();
   }
   getInitData() {
     const date = new Date();
