@@ -1,0 +1,68 @@
+.error-message {
+    color: red;
+    font-size: 11px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+:host/deep/.ui-select-choices-row.active>a {
+    background-color: #69c4c3 !important;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.file-upload {
+    .btn {
+        border: 1px solid #558ac0;
+        color: #558ac0;
+        background-color: white;
+        padding: 6px 20px !important;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    .upload-btn-wrapper input[type="file"] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .disab-button {
+        color: #fff !important;
+        background-color: #ebebeb;
+        border: none;
+        box-shadow: 1px 1px 2px #ccc !important;
+        font-size: 14px !important;
+        padding: 6px 20px !important;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 15px !important;
+    }
+
+    .disab-button:hover {
+        cursor: not-allowed;
+    }
+
+    .btn-defaul {
+        width: 90px 30px !important;
+    }
+}
+
+#x {
+    // position: absolute;
+    background: red;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    z-index: 99;
+}

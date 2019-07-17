@@ -1,0 +1,12 @@
+<div class="card-body">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" *ngIf="!!item.route" [routerLink]="item.route" routerLinkActive="router-link-active" routerLinkActive="active">
+                <img class="icon-style" alt="Caregiver" [src]="item.icon" /> {{item.text}}
+            </a>
+            <a class="nav-link" *ngIf="!!!item.route" (click)="item.function()">
+                <img class="icon-style" alt="Caregiver" [src]="item.icon" /> {{item.text}}
+            </a>
+        </li>
+    </ul>
+</div>

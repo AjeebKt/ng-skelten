@@ -1,0 +1,48 @@
+:host/deep/ .mat-drawer-content {
+  background: #ffffff;
+  background-color: #ffffff;
+}
+
+.content-container {
+  height: 100vh;
+}
+:host/deep/ .mat-drawer-side {
+  border-right: none;
+}
+
+.sidenav {
+  width: 285px;
+  background: #fff;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  // .sidenav-content {
+  //    margin-left: 255px;
+  // }
+}
+
+button:focus {
+  outline: none;
+  outline: none;
+}
+
+.side-toggle-btn {
+  margin-left: 3px;
+}
+
+.side-toggle-btn mat-icon {
+  color: #828385;
+}
+
+.route-pages {
+  margin-top: 30px;
+//   background: #fff;
+//   padding: 10px;
+}
+
+/* container setup */
+.focus:focus {
+  box-shadow: none;
+}
+.focus {
+  box-shadow: none;
+}

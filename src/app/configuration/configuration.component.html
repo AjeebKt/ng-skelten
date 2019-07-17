@@ -1,0 +1,219 @@
+<!-- <div id="wrapper" class="animate clearfix"> -->
+<!-- <nav class="navbar header-top fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img class="main-logo" src="./assets/images/uvt-logo.png" alt="" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav animate side-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" title="Dashboard"><i class="fas fa-building"></i> Sub Operator <i
+              class="fas fa-building shortmenu animate"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()" title="Comment"><i class="fas fa-sign-out-alt"></i> Log out <i
+              class="fas fa-sign-out-alt shortmenu animate"></i></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-md-auto d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-user"></i> User Name</a>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+
+
+
+<div class="container-fluid">
+  <div class="accounts-page">
+    <div class="col-md-12 float-left pl-0">
+      <div class="row">
+        <div class="col-xl-6 col-12">
+          <h4>Operator Configuration and Account settings</h4>
+        </div>
+        <div class="col-xl-12 col-12">
+          <div class="account-dtls p-4 pt-5 pb-5 bg-light shadow">
+            <form class="col-xl-12 col-12" [formGroup]="configForm" role="form" name="form" appFocusOnError
+              #focusOnError="appFocusOnError">
+
+              <div class="form-row">
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="validationCustom01">Username *</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="Username" value=""
+                    formControlName="userName" appValidatorTrigger>
+                  <show-errors [control]="confForm.userName" field="Username"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="validationCustom02">Password *</label>
+                  <input type="password" class="form-control" id="validationCustom02" placeholder="Password" value=""
+                    formControlName="uvtPwd">
+                  <show-errors [control]="confForm.uvtPwd" field="Password"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="validationCustom03">Name of Sub Operator *</label>
+                  <input type="text" class="form-control" id="validationCustom03" placeholder="Name of Sub Operator"
+                    value="" formControlName="subOperatorName" appValidatorTrigger>
+                  <show-errors [control]="confForm.subOperatorName" field="Name of Sub Operator"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="operratorIP">Operator IP *</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="operratorIP" placeholder="Operator IP" aria-describedby="inputGroupPrepend"
+                      formControlName="operatorIP" appValidatorTrigger>
+                  </div>
+                  <show-errors [control]="confForm.operatorIP" field="Operator IP"></show-errors>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="subOperatorIp">Sub Operator IP *</label>
+                  <input type="text" formControlName="subOperatorIp" class="form-control" id="subOperatorIp"
+                    placeholder="Sub Operator IP" appValidatorTrigger>
+                  <show-errors [control]="confForm.subOperatorIp" field="Sub Operator IP"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="email">Email *</label>
+                  <input type="text" class="form-control" id="email" formControlName="email" placeholder="Email"
+                    appValidatorTrigger>
+                  <show-errors [control]="confForm.email" field="Email"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="diskId">Disk Id</label>
+                  <input type="text" class="form-control" id="diskId" formControlName="diskID" placeholder="Disk Id">
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="processorID">Processor Id</label>
+                  <input type="text" class="form-control" id="processorID" placeholder="Processor Id" formControlName="processorID">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="phoneNumber">Phone Number *</label>
+                  <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone Number"
+                    appValidatorTrigger>
+                  <show-errors [control]="confForm.phoneNumber" field="Phone Number"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="location">Location *</label>
+                  <!-- <input type="text" class="form-control" formControlName="location" id="location"
+                      placeholder="Location"> -->
+                  <ng-select class="form-control box" id="validationCustom03" style="border: 0px;padding:0px;"
+                    [allowClear]="true" [items]="countryList" formControlName="location" value='' placeholder=""
+                    [required]="false">
+                  </ng-select>
+                  <show-errors [control]="confForm.location" field="Location"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="currency">Currency *</label>
+                  <!-- <input type="text" formControlName="currency" class="form-control" id="currency"
+                      placeholder="Currency"> -->
+                  <ng-select class="form-control box" id="validationCustom03" style="border: 0px;padding:0px;"
+                    [allowClear]="true" [items]="currencyList" formControlName="currency" value='' placeholder=""
+                    [required]="false">
+                  </ng-select>
+                  <show-errors [control]="confForm.currency" field="Currency"></show-errors>
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="language">Language *</label>
+                  <!-- <input type="text" class="form-control" formControlName="language" id="language"
+                      placeholder="Language"> -->
+                  <ng-select class="form-control box" id="validationCustom03" style="border: 0px;padding:0px;"
+                    [allowClear]="true" [items]="languageList" formControlName="language" value='' placeholder=""
+                    [required]="false">
+                  </ng-select>
+                  <show-errors [control]="confForm.language" field="Language"></show-errors>
+                </div>
+              </div>
+
+              <div class="form-row min-92">
+                <!-- <div class="col-xl-3 col-12 mb-3 ">
+                    <label for="startBillDate">Start Date</label>
+                    <input type="date" class="form-control" formControlName="startBillDate" id="startBillDate"
+                      placeholder="Start Date">
+                  </div> -->
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="billDay">Bill Date</label>
+                  <input type="number" class="form-control" max="31" formControlName="billDay" id="billDay" placeholder="Bill Key">
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="packageName">Package Name</label>
+                  <input type="text" class="form-control" formControlName="packageName" id="packageName" placeholder="Package Price">
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="packagePrice">Package Price</label>
+                  <input type="text" class="form-control" formControlName="packagePrice" id="packagePrice" placeholder="Package Price">
+                </div>
+                <div class="col-xl-3 col-12 mb-3">
+                  <label for="expiryWarningMailDay">Expiry Warning Mail Day</label>
+                  <select class="form-control" formControlName="expiryWarningMailDay" id="expiryWarningMailDay">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                    <option value="10">10</option>
+                  </select>
+                  <!-- <input type="text" class="form-control" formControlName="expiryWarningMailDay"
+                    id="expiryWarningMailDay" placeholder="Package Price"> -->
+                </div>
+
+              </div>
+
+              <div class="form-row min-92">
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="powerBIConn">Powerbi Connection</label>
+                  <!-- <label class="switch-tggl"><input type="checkbox"><span class="slider"></span></label> -->
+                  <div>
+                    <mat-slide-toggle class="example-margin" formControlName="powerBIStatus" [color]="color" [checked]="pwrBichecked">
+                    </mat-slide-toggle>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="licenseKey">License Key</label>
+                  <input type="text" class="form-control" formControlName="licenseKey" id="licenseKey" placeholder="License Key">
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="accessKey">Access Key</label>
+                  <input type="text" class="form-control" formControlName="accessKey" id="accessKey" placeholder="Access Key">
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="paymentSecret">Payment Secret</label>
+                  <input type="text" class="form-control" formControlName="paymentSecret" id="paymentSecret"
+                    placeholder="Payment Secret">
+                </div>
+              </div>
+
+              <div class="form-row min-92">
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label>Log Monitor</label>
+                  <div>
+                    <mat-slide-toggle class="example-margin" formControlName="logMonitorStatus" [color]="color"
+                      [checked]="LogMonitorChecked">
+                    </mat-slide-toggle>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-12 mb-3 ">
+                  <label for="logo">Logo</label>
+                  <div class="d-flex">
+                    <input type="file" class="form-control" (change)="getImage($event)" formControlName="logo" id="logo"
+                      placeholder="Logo">
+                    <button class="btn btn-dark float-right" type="button" (click)="uploadImg()">Upload</button>
+                  </div>
+                </div>
+              </div>
+              <div class="float-right">
+                <p class="float-left btn-text">Your data will be handled with care</p>
+                <button class="btn btn-primary create-btn" appButtonSubmit [form]="focusOnError" (submission)="submitForm()">Create</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

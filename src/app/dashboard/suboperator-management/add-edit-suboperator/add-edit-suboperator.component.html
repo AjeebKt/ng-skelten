@@ -1,0 +1,151 @@
+<div class="page-for-forms">
+  <h4>{{pageTitle}}</h4>
+  <form [formGroup]="newSubOperatorForm" appFocusOnError novalidate #focusOnError="appFocusOnError">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-md-12 col-form-label mandatory">Sub operator name</label>
+          <div class="col-md-12">
+            <input appAutofocus appSpaceRemover appValidatorTrigger spaceState="partial" appSplCharRemover
+              notAllowState="number" appValidatorTrigger formControlName="name" class="bg-Small form-control"
+              placeholder="">
+            <show-errors [control]="subOperatorFormContorls.name" field="Sub operator name"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-md-12 col-form-label mandatory">Username</label>
+          <div class="col-md-12">
+            <input appSpaceRemover spaceState="full" appValidatorTrigger appSplCharRemover notAllowState="special"
+              formControlName="username" class="bg-Small form-control" placeholder="">
+            <show-errors [control]="subOperatorFormContorls.username" field="Username"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label class="col-sm-12 col-form-label mandatory">Country</label>
+          <div class="col-sm-12">
+            <ng-select formControlName="locationSelect" [items]="items" placeholder="" required>
+            </ng-select>
+            <show-errors [control]="subOperatorFormContorls.locationSelect" field="country"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-12 col-form-label mandatory">Contact person name</label>
+          <div class="col-sm-12" #contactPersonDiv>
+            <input appSpaceRemover spaceState="partial" appSplCharRemover notAllowState="number" appValidatorTrigger
+              formControlName="contactPerson" class="bg-Small form-control" placeholder="">
+            <show-errors [control]="subOperatorFormContorls.contactPerson" field="Contact person name"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-12 col-form-label mandatory">Email</label>
+          <div class="col-sm-12">
+            <input appValidatorTrigger appSpaceRemover spaceState="full" formControlName="email" class="bg-Small form-control"
+              placeholder="" emailValidator>
+            <show-errors [control]="subOperatorFormContorls.email" field="email"></show-errors>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-12 col-form-label">Contact number</label>
+          <div class="col-sm-12">
+            <intl-tel-input (change)="onChange($event)" (phNoTyped)='onPhAdded($event)' appValidatorTrigger
+              formControlName="contactNumber" name="first"></intl-tel-input>
+            <show-errors [control]="subOperatorFormContorls.contactNumber" field="Contact number"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-12 col-form-label">Consent form</label>
+          <div class="col-sm-12">
+            <textarea class="form-control" rows="5" name="tearmsAndConditons" appValidatorTrigger formControlName="tearmsAndConditons">
+            </textarea>
+            <show-errors [control]="subOperatorFormContorls.tearmsAndConditons" field="Consent form"></show-errors>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 divs-for-input file-upload">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label ">Logo</label>
+          <div class="col-sm-10">
+            <div class="upload-btn-wrapper">
+              <button class="btn">Choose a file</button>
+              <input class="form-control" *ngIf="!logoImageUrl" type="file" name="files-1[]" id="file-1" accept="image/*"
+                class="inputfile inputfile-1 desc" (change)="changeListener($event)" />
+            </div>
+            <label for="file-1">
+            </label>
+            <div style="padding:5px;">Maximum width:160px, Maximum height:56px</div>
+            <div *ngIf="logoImageUrl">
+              <angular-cropper #logo (ready)="ready($event)" [cropperOptions]="config" [imageUrl]="logoImageUrl"></angular-cropper>
+              <div class="btn-crops">
+                <button class="btn-defaul" (click)="cancelCrop()">Cancel</button>
+                <button class="btn-defaul" (click)="cropfun()">Crop</button>
+              </div>
+            </div>
+            <div *ngIf="!logoImageUrl" style="display:none">
+              <angular-cropper #logo (ready)="ready($event)" [cropperOptions]="config"></angular-cropper>
+            </div>
+            <div class="cropShow d-inline-block position-relative " *ngIf="logoImage && !logoImageUrl">
+              <img id="container" src="{{logoImage}}">
+              <button id="x" title="Remove logo" (click)="removeLogo()">
+                X
+              </button>
+            </div>
+            <div>{{fileName}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 divs-for-input  file-upload">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label ">Fav icon</label>
+          <div class="col-sm-10">
+            <div class="upload-btn-wrapper">
+              <button class="btn">Choose a file</button>
+              <input class="form-control" *ngIf="!favImageUrl" type="file" name="files-2" id="file-1" accept="image/*"
+                class="inputfile inputfile-1 desc" (change)="changeListener($event,'fav')" />
+            </div>
+            <label for="file-1">
+            </label>
+            <div style="padding:5px;">Maximum width:160px, Maximum height:56px</div>
+            <div *ngIf="favImageUrl">
+              <angular-cropper #favIcon [cropperOptions]="config" [imageUrl]="favImageUrl"></angular-cropper>
+              <div class="btn-crops">
+                <button class="btn-defaul" (click)="cancelCrop('fav')">Cancel</button>
+                <button class="btn-defaul" (click)="cropfun('fav')">Crop</button>
+              </div>
+            </div>
+            <div *ngIf="!favImageUrl" style="display:none">
+              <angular-cropper #favIcon [cropperOptions]="config"></angular-cropper>
+            </div>
+            <div class="cropShow  d-inline-block position-relative" *ngIf="favImage && !favImageUrl">
+              <img id="container" src="{{favImage}}">
+              <button id="x" title="Remove fav icon" (click)="removeFavIcon()">
+                X
+              </button>
+            </div>
+            <div>
+              {{favFileName}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+  <div class="right-page-btns">
+    <button appButtonSubmit [form]="focusOnError" class="btn btn-defaul" (submission)="onSubmit()">{{isEditUser?'Update':'Submit'}}</button>
+    <button type="button" class="btn btn-defaul" (click)="cancelAdd()" [routerLink]="['../../addcorporate']">Cancel</button>
+  </div>
+</div>

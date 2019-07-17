@@ -1,0 +1,65 @@
+<!-- title sec buttons -->
+<div class="row title-sec" [ngClass]="{'tableStyle':'!noUser'}">
+  <h4 class="left-align col-lg-4 col-xs-12">{{pageTitle}}</h4>
+  <div class="right-page-btns col-lg-8 col-xs-12">
+    <a class="btn btn-defaul top-btns" role="button" [routerLink]="['add-suboperator']">Add Sub operator</a>
+  </div>
+</div>
+<!-- options for table  click -->
+<div *ngIf="!noUser" class="options-for-table">
+  <div class="row">
+    <div class="col-xl-9 col-lg-8 col-sm-12">
+      <button [disabled]="noUser" class="btn table-head-btns same-line-btns" title="Refresh" (click)="refresh()">
+        <mat-icon class="md-24" aria-label="Settings">refresh</mat-icon>
+      </button>
+      <div class="search-box same-line-btns">
+        <input [disabled]="noUser" class="form-control mr-sm-2"type="text" (ngModelChange)="onSearchValueChange($event)"
+          placeholder="Search by Name" aria-label="Search" [(ngModel)]="listFilter">
+        <button class="btn my-2 my-sm-0"(click)="clearSearchInput()" type="submit">
+          <mat-icon class="md-24" *ngIf="!listFilter" aria-label="Settings">search</mat-icon>                     
+          <mat-icon class="md-24" *ngIf="listFilter" aria-label="Settings">close</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-4 col-sm-12 table-paginate ">
+      <app-custom-pagination class="tableRightSec" *ngIf="list_suboperators?.length" 
+        (pageChange)="page = $event" id="1" [filteredLength]="filteredsuboperators.length" maxSize="2" directionLinks="true" autoHide="false" [listLength]="list_suboperators.length"
+        [listPerPage]="itemsPerPage">
+      </app-custom-pagination>
+    </div>
+  </div>
+</div>
+<!-- table -->
+<div>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Sub operator name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Block</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let subOperator of filteredsuboperators  |  paginate: {itemsPerPage: itemsPerPage, currentPage:page, id: '1'}; let i = index"[ngClass]="{'disabledRow': subOperator.blocked}">
+        <td >
+          <a *ngIf="subOperator.blocked" [title]="subOperator.subOperatorName">{{subOperator.subOperatorName}}</a>
+          <a *ngIf="!subOperator.blocked" [title]="subOperator.subOperatorName"(click)="subOperatorChange(subOperator.subOperatorId)">{{subOperator.subOperatorName}}</a>
+        </td>
+        <td class="tdWidth"><span [title]="subOperator.email">{{subOperator.email}}</span></td>
+        <td class="country-td">{{subOperator.location}}</td>
+        <td>
+          <mat-icon class="md-24 tableIcon" aria-label="Block" [style.color]="subOperator.blocked==true?'red':''"
+            (click)="blockUserClick(subOperator.subOperatorId,subOperator.subOperatorName,subOperator.blocked)">block</mat-icon>
+        </td>
+        <td>
+          <mat-icon class="md-24 deleteBtn tableIcon" aria-label="Delete" (click)="deleteUser(subOperator.subOperatorId,subOperator.subOperatorName)">delete</mat-icon>
+        </td>
+      </tr>
+      <td *ngIf="!filteredsuboperators?.length" class="text-center" colspan="6"> No data available </td>
+    </tbody>
+    <tfoot>
+    </tfoot>
+  </table>
+</div>

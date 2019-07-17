@@ -1,0 +1,115 @@
+h2{
+    padding-left: 5px;
+}
+
+.zindex1000{
+    z-index: 1000;
+    top:0;
+    position: fixed;
+}
+
+:host /deep/ .invalidDate > my-date-picker > div > div > input{
+    border:1px solid red!important;
+}
+:host /deep/ .invalidDate > my-date-picker .selbtngroup{
+    padding: 3px;
+}
+
+/* .panel-primary{
+    /* overflow: hidden; 
+}*/ 
+
+.editbutton_useredit{
+    margin-bottom: 15px;
+    margin-right: 0;
+    /* width: 85%; */
+}
+.leftp {
+    margin-right: 15px;
+}
+// .row{
+//     margin-top: 15px;
+//     margin-bottom: 15px;
+// }
+.topmargin {
+    margin-top: 15px;
+    background-color: #fff !important;
+  }
+  .paddinf-left-0{
+    padding-left: 0!important;
+  }
+  .paddinf-right-0{
+    padding-right: 0!important;
+  }
+  .selected-list .fa-angle-down, .selected-list .fa-angle-up{
+    font-size: 14pt;
+  }
+  
+  :host /deep/ .selected-list .c-btn {
+   
+    box-shadow: none!important;
+    
+}
+:host /deep/.c-btn{
+    
+    border: none!important;
+    border-radius: 4px!important;
+}
+.hr_class{
+    border-top: 1px solid #b6b6b6!important;
+      margin-top: 2px;
+  }
+  :host/deep/.countryDropdown .btn:hover{
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0)!important;
+    color: #141414!important;
+    text-decoration: none;
+    background-color: #ffffff!important;
+}
+:host/deep/.ui-select-choices-row.active > a{
+    background-color: #69c4c3!important;
+  }
+//   :host/deep/ .ui-select-multiple{
+
+//   }
+ :host /deep/ .editDoctorCaregiver .btn-secondary, 
+ :host /deep/ .editDoctorCaregiver .ui-select-choices,
+ :host /deep/ .editDoctorCaregiver .ui-select-search {
+    // font-size: 14px;
+    border-radius: 5px;
+    color:#495057 !important;
+    padding: 8px;
+    background-color: #ffffff!important;
+    -webkit-appearance: none;
+    border: none;
+} 
+:host /deep/ .editDoctorCaregiver .btn-secondary :focus, 
+ :host /deep/ .editDoctorCaregiver .ui-select-choices :focus,
+ :host /deep/ .editDoctorCaregiver .ui-select-search :focus{
+    box-shadow: none;
+} 
+:host /deep/ .editDoctorCaregiver .ui-select-multiple :focus {
+    box-shadow: none;
+}
+:host /deep/ .editDoctorCaregiver .ui-select-multiple .ui-select-match-item {
+    max-width: 100px;
+    overflow: hidden;
+}
+:host /deep/ .editDoctorCaregiver .ui-select-match .close {
+    font-size: 1.6em;
+    color: #9f9f9f;
+    line-height: 1.00;
+}
+:host /deep/ .mat-slide-toggle.mat-checked .mat-ripple-element{
+    background-color: #69c4c3;
+}
+.inputCmKg, .inputCmKg :disabled{
+    width: 30px;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    color: #495057;
+}
+:host /deep/ .ui-select-match .ui-select-toggle.btn {
+    padding: .375rem .75rem !important;
+}

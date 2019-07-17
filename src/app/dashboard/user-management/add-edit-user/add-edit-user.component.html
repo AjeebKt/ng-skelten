@@ -1,0 +1,217 @@
+<div class="page-for-forms">
+  <h4>{{pageTitle}}</h4>
+  <div class="bg-white p-4">
+    <form role="form" name="form" [formGroup]="addEditUserForm" appFocusOnError #focusOnError="appFocusOnError">
+      <div class="row">
+        <ng-container>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="name" class="col-sm-12 col-form-label mandatory">Name</label>
+              <div class="col-sm-12">
+                <input appAutofocus appSpaceRemover spaceState="partial" appSplCharRemover notAllowState="number"
+                  formControlName="name" class="form-control" appValidatorTrigger>
+                <show-errors [control]="userFormContorls.name" field="Name"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userEmail" class="col-sm-12 col-form-label mandatory">Email</label>
+              <div class="col-sm-12">
+                <input appSpaceRemover spaceState="full" formControlName="userEmail" class="form-control" emailValidator
+                  [ngClass]="{ 'has-danger': submitted && userFormContorls.userEmail.errors }" appValidatorTrigger>
+                <show-errors [control]="userFormContorls.userEmail" field="Email"></show-errors>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="col-md-4 col-sm-12 divs-for-input" *ngIf=!isEditUser>
+            <div class="form-group row">
+              <label for="userName" class="col-sm-12 col-form-label mandatory">Username</label>
+              <div class="col-sm-12">
+                <input appSpaceRemover spaceState="full" appSplCharRemover notAllowState="special"
+                  formControlName="userName" class="form-control"
+                  [ngClass]="{ 'has-danger': submitted && userFormContorls.userName.errors }" appValidatorTrigger>
+                <show-errors [control]="userFormContorls.userName" field="Username"></show-errors>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="col-md-4 col-sm-12 divs-for-input">
+          <div class="form-group row">
+            <label for="userId" class="col-sm-12 col-form-label">User id</label>
+            <div class="col-sm-12">
+              <input appSpaceRemover appSplCharRemover notAllowState="special-full" notAllowState="special-full"
+                spaceState="full" formControlName="userId" class="form-control" [ngClass]="{ 'has-danger': submitted && userFormContorls.userId.errors }"
+                appValidatorTrigger>
+              <show-errors [control]="userFormContorls.userId" field="User id"></show-errors>
+            </div>
+          </div>
+        </div> -->
+          <div *ngIf="buttonStatusedit" class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userStartDate" class="col-sm-12 col-form-label">Start Date</label>
+              <div class="col-sm-12">
+                <input name="myDate" formControlName="userStartDate" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="dateOfBirth" class="col-sm-12 col-form-label mandatory">Date of Birth</label>
+              <div class="col-sm-12 input-group">
+                <input appPhoneNumber appDateInputDisable class="form-control" style="float:none;border-right:none"
+                  placeholder="Select a date" ngx-mydatepicker name="myDate" formControlName="dateOfBirth"
+                  [options]="myDatePickerOptions" #dp="ngx-mydatepicker" (click)="dp.toggleCalendar()"
+                  appValidatorTrigger />
+                <button class="btn input-group-btn forDate">
+                  <mat-icon class="md-24" *ngIf="!userFormContorls.dateOfBirth.value" aria-label="Settings"
+                    (click)="dp.toggleCalendar()">date_range</mat-icon>
+                  <mat-icon class="md-24" *ngIf="userFormContorls.dateOfBirth.value" aria-label="Settings"
+                    (click)="dp.clearDate()">close</mat-icon>
+                </button>
+              </div>
+              <div class="col-sm-12">
+                <show-errors [control]="userFormContorls.dateOfBirth" field="Date of Birth"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userGender" class="col-sm-12 col-form-label mandatory">Gender</label>
+              <div class="col-sm-12">
+                <ng-select class="form-control box"  style="border: 0px;padding:0px;" [allowClear]="true"
+                  formControlName="userGender" [items]=genderList appValidatorTrigger>
+                </ng-select>
+                <show-errors [control]="userFormContorls.userGender" field="Gender"></show-errors>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userAddress" class="col-sm-12 col-form-label">Address</label>
+              <div class="col-sm-12">
+                <textarea appSpaceRemover spaceState="partial" style="max-height: 100px;" formControlName="userAddress"
+                  class="form-control" [ngClass]="{ 'has-danger': submitted && userFormContorls.userAddress.errors }"
+                  appValidatorTrigger>  </textarea>
+                <show-errors [control]="userFormContorls.userAddress" field="Address"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="guardianEmail" class="col-sm-12 col-form-label">Guardian email</label>
+              <div class="col-sm-12">
+                <input appSpaceRemover spaceState="full" formControlName="guardianEmail" class="form-control"
+                  emailValidator [ngClass]="{ 'has-danger': submitted && userFormContorls.guardianEmail.errors }">
+                <show-errors [control]="userFormContorls.guardianEmail" field="Guardian email"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="stateAndZipCode" class="col-sm-12 col-form-label">State and zip code</label>
+              <div class="col-sm-12">
+                <input appSpaceRemover spaceState="partial" appSplCharRemover notAllowState="special"
+                  formControlName="stateAndZipCode" class="form-control"
+                  [ngClass]="{ 'has-danger': submitted && userFormContorls.stateAndZipCode.errors }"
+                  appValidatorTrigger>
+                <show-errors [control]="userFormContorls.stateAndZipCode" field="State and zip code"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userCountry" class="col-sm-12 col-form-label">Country</label>
+              <div class="col-sm-12">
+                <ng-select class="form-control box" style="border: 0px;padding:0px;" [allowClear]="true" [items]=items
+                  formControlName="userCountry" placeholder="" [required]="false" appValidatorTrigger>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="utcOffset" class="col-sm-12 col-form-label mandatory">Time Zone</label>
+              <div class="col-sm-12">
+                <ng-select class="form-control box" style="border: 0px;padding:0px;" [allowClear]="true"
+                  formControlName="utcOffset" [items]=timeZoneList appValidatorTrigger>
+                </ng-select>
+
+                <!-- <ng-select class="box" id="validationCustom03" [allowClear]="true" [items]="timeOffset"
+              formControlName="timeZone" placeholder="" [required]="false">
+              </ng-select> -->
+                <show-errors [control]="userFormContorls.utcOffset" field="Time Zone"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userHeight" class="col-sm-12 col-form-label">Height</label>
+              <div class="col-sm-12 input-group">
+                <!--  -->
+                <input type="floatNumber" formControlName="userHeight" class="form-control"
+                  [ngClass]="{ 'has-danger': submitted && userFormContorls.userHeight.errors }" appValidatorTrigger>
+                <div class="input-group-append">
+                  <input class="inputCmKg" disabled value="cm">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <show-errors [control]="userFormContorls.userHeight" field="Height"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userWeight" class="col-sm-12 col-form-label">Weight</label>
+              <div class="col-sm-12 input-group">
+                <input type="floatNumber" formControlName="userWeight" class="form-control"
+                  [ngClass]="{ 'has-danger': submitted && userFormContorls.userWeight.errors }" appValidatorTrigger>
+                <div class="input-group-append">
+                  <input class="inputCmKg" disabled value="kg">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <show-errors [control]="userFormContorls.userWeight" field="Weight"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="userContactNumber" class="col-sm-12 col-form-label ">Contact number</label>
+              <div class="col-sm-12">
+                <intl-tel-input class="form-control" style="border: 0px;padding:0px;"
+                  formControlName="userContactNumber" name="first" appValidatorTrigger></intl-tel-input>
+                <show-errors [control]="userFormContorls.userContactNumber" field="Contact number"></show-errors>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="groupList" class="col-sm-12 col-form-label">Group</label>
+              <div class="col-sm-12">
+                <ng-select class="form-control" [multiple]="true" (removed)="removed($event)" id="groupList"
+                  style="border: 0px;padding:0px;" [allowClear]="true" [items]="groupList" formControlName="groupList"
+                  placeholder="" [required]="false" #groupSelect appValidatorTrigger>
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-12 divs-for-input">
+            <div class="form-group row">
+              <label for="diabetic" class="col-sm-12 col-form-label">Diabetic status</label>
+              <div class="col-sm-12">
+                <mat-slide-toggle class="form-control" style="border: 0px;padding:0px;" labelPosition='before'
+                  name="diabetic" formControlName="diabetic"></mat-slide-toggle>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </form>
+    <div class="right-page-btns">
+      <button appButtonSubmit [form]="focusOnError" class="btn btn-defaul"
+        (submission)="onSubmit()">{{submitText}}</button>
+      <button class="btn btn-defaul" (click)="cancelAddUser()">Cancel</button>
+    </div>
+  </div>
+</div>

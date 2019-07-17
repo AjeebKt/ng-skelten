@@ -1,0 +1,27 @@
+<mat-drawer-container class="content-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="{{sideNaveMode}}" opened="{{sidenavStatus}}">
+    <app-left-nav-bar></app-left-nav-bar>
+  </mat-drawer>
+  <div class="sidenav-content clearfix">
+    <div class="col-md-12 col-sm-12">
+      
+      <button class="side-toggle-btn" mat-icon-button mat-button (click)="drawer.toggle()">
+        <mat-icon class="md-24" aria-label="Open Sidebar Menu">menu</mat-icon>
+      </button>
+      <!-- <div class="dropdown" style="    float: right;">
+        <button class="btn dropdown-toggle focus" type="button" data-toggle="dropdown" style="border:none;color: #828385">
+          <mat-icon class="md-24 verticalMiddle" aria-label="color">list</mat-icon>
+          <span class="caret verticalMiddle"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div> -->
+      <div class="route-pages">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</mat-drawer-container>

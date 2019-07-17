@@ -1,0 +1,64 @@
+$white-color :#ffffff;
+$black-color:            #000000;
+
+$screen-xl: 1200px;
+$screen-lg: 991px;
+$screen-md: 768px;
+$screen-sm: 576px;
+$screen-xs: 360px;
+.display-404 {
+  color: $white-color;
+  font: {
+    size: 345px;
+    weight: 900;
+  }
+  line-height: 1.6;
+  text-shadow: 12px 12px 30px rgba($black-color, .1);
+  @media (max-width: $screen-lg) {
+    font-size: 280px;
+  }
+  @media (max-width: $screen-md) {
+    font-size: 200px;
+  }
+  @media (max-width: $screen-sm) {
+    font-size: 135px;
+  }
+}
+.display-401 {
+  color: $white-color;
+  font: {
+    size: 345px;
+    weight: 900;
+  }
+  line-height: 1.12;
+  text-shadow: 12px 12px 30px rgba($black-color, .1);
+  @media (max-width: $screen-lg) {
+    font-size: 280px;
+  }
+  @media (max-width: $screen-md) {
+    font-size: 200px;
+  }
+  @media (max-width: $screen-sm) {
+    font-size: 135px;
+  }
+}
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px black; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: black; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000000; 
+  }

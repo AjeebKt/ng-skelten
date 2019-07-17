@@ -1,0 +1,95 @@
+:host/deep/ .dropdown-list ul li:hover{
+    background: #ffffff;
+}
+:host/deep/ .dropdown-list ul li{
+    border-bottom: 1px solid #e1e1e9;
+    padding: 15px;
+}
+:host/deep/ .dropdown-list ul .selected-item{
+    background: #ffffff;
+}
+
+:host/deep/ .dropdown-list ul li label{
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+:host/deep/  .dropdown-list ul li label:before{
+    color: #000!important;
+    border: 1px solid #000!important;
+    border-radius: 5px!important;;
+}
+:host/deep/  .dropdown-list ul .selected-item label :before{
+    /* background: #69c4c3!important; */
+    background: #ffffff!important;
+    border-radius: 5px!important;;
+    color: #000!important;
+}
+:host/deep/ .pure-checkbox input[type="checkbox"]:checked + label:before{
+    background: #171717!important;
+}
+
+:host/deep/ .pure-checkbox input[type=checkbox]+label:before{
+    width: 15px!important;
+    height: 15px!important;
+}
+:host/deep/  .dropdown-list .list-area {
+    box-shadow: 0px 0px 11px #e7e3e3!important;
+
+    border-radius: 3px;
+    background: #fffdfd!important;
+    margin: 0;
+    width: 300px!important;
+    box-shadow: none;
+}
+
+:host/deep/ .selected-list .c-list .c-token .c-remove svg{
+    display: none;
+}
+
+:host/deep/ .caregiverListDropdown .disabled{
+    background: #fff!important;
+    cursor: not-allowed;
+
+}
+:host/deep/ .caregiverListDropdown .disabled span{
+    color: #a1a1a1!important;
+}
+:host/deep/ .doctorListDropdown .disabled{
+    background: #fff!important;
+    cursor: not-allowed;
+
+}
+:host/deep/ .doctorListDropdown .disabled span{
+    color: #a1a1a1!important;
+}
+
+@media screen and (max-width: 1093px) {
+    :host/deep/  .dropdown-list .list-area {
+        box-shadow: 0px 0px 11px #e7e3e3!important;
+    
+        border-radius: 3px;
+        background: #fffdfd!important;
+        margin: 0;
+        width: 150px!important;
+        box-shadow: none;
+    }
+    :host/deep/ .dropdown-list ul li label{
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    :host/deep/ .selected-list{
+        overflow: hidden;
+    }
+    .table td{
+        white-space: normal!important;
+    }
+    :host/deep/ .selected-list  span{
+        margin-right: 45px;
+    }
+    .dropdownListClass{
+        max-width: unset;
+    }
+  }
+  

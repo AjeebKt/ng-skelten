@@ -1,0 +1,160 @@
+/* sidebar */
+
+.card {
+    border-radius: 0px;
+    border: 0px;
+    background-color: #3b3b48;
+}
+
+.card-header {
+    padding: 0px;
+}
+
+.card-header h5 {
+    margin: 0px;
+}
+
+.card-header button {
+    width: 100%;
+    padding: 15px;
+    border: 0px;
+    color: #ffffff;
+    text-align: left;
+    border-radius: 0px;
+}
+
+.card-header button.btn.btn-link.arrow-show:after {
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    content: "";
+    border-top: 0;
+    border-right: .4em solid transparent;
+    border-bottom: .4em solid;
+    border-left: 0.4em solid transparent;
+    vertical-align: middle;
+    float: right;
+    margin-top: 6px;
+}
+
+.card-header button.btn.btn-link.arrow-show.collapsed:after {
+    width: 0;
+    height: 0;
+    margin-left: .255em;
+    content: "";
+    border-top: 0.4em solid;
+    border-right: .4em solid transparent;
+    border-bottom: 0;
+    border-left: .4em solid transparent;
+    vertical-align: middle;
+    float: right;
+    margin-top: 8px;
+}
+
+.card-header .btn-link:hover,
+.card-header .btn-link:focus {
+    color: #ffffff;
+    text-decoration: unset;
+    background-color: unset;
+}
+
+.card .btn:focus,
+.card .btn:active:focus,
+.card .btn.active:focus,
+.card .btn.focus,
+.card .btn:active.focus,
+.card .btn.active.focus {
+    outline: none;
+    outline-offset: none;
+    color: #fff;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    outline: none;
+    outline-offset: none;
+}
+
+.icon-style {
+    width:14px;
+    height: 20px;
+    color: #1f48a1 !important;
+    float: left;
+    margin-top:0px;
+    margin-right: 10px;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.card-body ul {
+    width: 100%;
+    padding-left: 0px;
+}
+
+.card-body ul li {
+    padding: 0px;
+    width: 100%;
+}
+
+/* .card-body ul li */
+
+.active {
+    /* background: #393939 !important; */
+    background: -moz-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%) ;
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(91, 135, 168, 1)), color-stop(100%, rgba(105, 196, 195, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69c4c3', endColorstr='#5b87a8', GradientType=1);
+}
+
+.btn:not(:disabled):not(.disabled).active,
+.btn:not(:disabled):not(.disabled):active {
+    /* background: #393939 !important; */
+    background: -moz-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(91, 135, 168, 1)), color-stop(100%, rgba(105, 196, 195, 1)));
+    background: -webkit-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: -o-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: -ms-linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    background: linear-gradient(45deg, rgba(91, 135, 168, 1) 0%, rgba(105, 196, 195, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#69c4c3', endColorstr='#5b87a8', GradientType=1);
+}
+
+.card-body .nav-pills .nav-link.active,
+.card-body .nav-pills .show>.nav-link {
+    border-radius: 0px;
+}
+
+.nav-pills .nav-link {
+    border-radius: 0px;
+    padding-left: 42px;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.card-body .nav>li:hover,
+.card-body .nav>li:focus {
+    background-color: #444;
+    outline: 0px;
+}
+
+.card-body .nav>li>a:hover,
+.card-body .nav>li>a:focus {
+    background-color: #444;
+}
+
+.card a:hover,
+.card a:focus {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav a {
+    color: #6b6e7b;
+    text-decoration: none;
+    background-color: #1d1f2e !important;
+}

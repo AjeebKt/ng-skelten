@@ -1,0 +1,83 @@
+.outer {     
+    background-image: url("../../assets/images/background.jpg");
+    height: 100vh;    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+  .login .btn-primary{
+    max-width: 250px;  
+    background-color: #5c81a6;
+    border-color: #5c81a6;   
+  }
+  .login .btn-primary:hover{
+    background-color: #5c81a6;
+    border-color: #5c81a6;  
+  }
+  img{
+    width: 420px;
+    // width: 350px;
+    height: auto;
+  }
+
+.card {  
+  margin-top:0%;
+  border: 0px solid transparent;
+  box-shadow: none;
+  border-color: transparent!important;  position: relative; top: 70%; 
+}
+:host /deep/ .mat-form-field-underline {
+  display: block;  
+}
+:host /deep/ .mat-input-infix{
+  border: 0px solid transparent !important;
+}
+:host /deep/ .mat-focused .mat-form-field-underline {
+  border-color: green;
+}
+:host /deep/ .mat-form-field-ripple {
+  background-color: #3b3b48!important;
+}
+
+.input-group-text {  
+  background-color: transparent;
+  border: 1px solid transparent;  
+}
+.card-body{
+  text-align: left;
+}
+.card-body h4{
+  text-align: left;
+  margin: 20px 0px 45px;
+}
+.card-body button{
+  border-radius: 25px;
+}
+
+:host /deep/ .mat-form-field-placeholder-wrapper {
+  left: 15px;
+}
+
+.mat-form-field mat-icon{
+  cursor: default;
+}
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 0px solid transparent;
+  -webkit-text-fill-color: black;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.login .btn{ border-radius: 0; margin: 0px auto; padding:8px 0; background: #2d2f3e; width: 150px;}
+.login .btn:hover{ background: #1d1f2e !important;}

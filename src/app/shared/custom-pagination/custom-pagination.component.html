@@ -1,0 +1,38 @@
+<pagination-template #p="paginationApi" [id]="id" [maxSize]="maxSize" (pageChange)="pageChange.emit($event)">
+    <ul class="ngx-pagination" role="navigation" [attr.aria-label]="screenReaderPaginationLabel" *ngIf="!(autoHide && p.pages.length <= 1)">
+        <li *ngIf="p?.pages?.length===0">0
+
+        </li>
+        <li *ngFor="let page of p.pages">
+            <span *ngIf="1 === page.value"> {{ listPerPage*(p.getCurrent()-1)+1 }} -
+                {{(listPerPage*(p.getCurrent()-1))+itemsPerPage}}</span>
+            <div *ngIf="p.getCurrent() === page.value">
+            </div>
+        </li>
+        <li class="total-pages" *ngIf="directionLinks">
+            <span>
+                &nbsp; of &nbsp;{{ listLength }}
+            </span>
+        </li>
+        <li class="pagination-previous" [class.disabled]="p.isFirstPage()" *ngIf="directionLinks">
+            <a class="btn active" *ngIf="!p.isFirstPage()" (click)="p.previous()">
+                <mat-icon class="md-24" aria-label="Settings">chevron_left</mat-icon>
+            </a>
+            <span *ngIf="p.isFirstPage()">
+                <button class="btn inactive" type="button">
+                    <mat-icon class="md-24" aria-label="Settings">chevron_left</mat-icon>
+                </button>
+            </span>
+        </li>
+        <li class="pagination-next" [class.disabled]="p.isLastPage()" *ngIf="directionLinks">
+            <a class="btn active" *ngIf="!p.isLastPage()" (click)="p.next()" [attr.aria-label]="nextLabel + ' ' + screenReaderPageLabel">
+                <mat-icon class="md-24" aria-label="Settings">chevron_right</mat-icon>
+            </a>
+            <span *ngIf="p.isLastPage()">
+                <button class="btn inactive" type="button">
+                    <mat-icon class="md-24" aria-label="Settings">chevron_right</mat-icon>
+                </button>
+            </span>
+        </li>
+    </ul>
+</pagination-template>

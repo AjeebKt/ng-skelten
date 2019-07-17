@@ -1,0 +1,28 @@
+<div class="page-for-forms" style="height: 250px;
+width: 600px;">
+  <h4>Invite user</h4>
+  <form>
+    <div class="col-md-12 col-sm-12 divs-for-input">
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-12 col-form-label
+              mandatory">Enter email</label>
+        <div class="col-sm-12">
+          <mat-chip-list #chipList class="form-control" style="height: 100px;overflow: hidden;">
+            <mat-chip *ngFor="let email of emails" [selectable]="selectable" [removable]="removable" (removed)="remove(email)">
+              {{email.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input appAutofocus [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" />
+          </mat-chip-list>
+        </div>
+      </div>
+    </div>
+    <mat-dialog-actions align="end" style="padding:8px 15px">
+      <div class="right-page-btns">
+        <button class="btn-defaul" mat-dialog-close>Cancel</button>
+        <button class="btn-defaul" type="submit" (click)="inviteUsers()">Invite user</button>
+      </div>
+    </mat-dialog-actions>
+  </form>
+</div>

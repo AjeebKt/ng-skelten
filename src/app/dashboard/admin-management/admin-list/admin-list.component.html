@@ -1,0 +1,76 @@
+<div class="p-4 bg-white">
+    <div class="row title-sec">
+        <h4 class="left-align col-lg-4 col-xs-12">{{ pageTitle }}</h4>
+        <div class="right-page-btns col-lg-8 col-xs-12">
+            <a class="btn btn-defaul top-btns" role="button" [routerLink]="['add-admin']">Add admin</a>
+        </div>
+    </div>
+
+    <div class="options-for-table">
+        <div class="row">
+            <div class="col-lg-9 col-sm-12">
+                <button [disabled]="!(adminDetails && adminDetails.length)" class="btn table-head-btns same-line-btns"
+                    (click)="refresh()" title="Refresh">
+                    <mat-icon class="md-24" aria-label="Settings">refresh</mat-icon>
+                </button>
+                <div class="search-box same-line-btns">
+                    <!-- [disabled]="!(adminDetails && adminDetails.length)"  -->
+                    <input appAutofocus class="form-control mr-sm-2" type="text" placeholder="Search by Name"
+                        aria-label="Search" (ngModelChange)="onSearchValueChange($event,0)" [(ngModel)]="listFilter">
+                    <button  (click)="clearSearchInput()" class="btn  my-2 my-sm-0"
+                        type="submit">
+                        <mat-icon class="md-24" *ngIf="!listFilter" aria-label="Settings">search</mat-icon>
+                        <mat-icon class="md-24" *ngIf="listFilter" aria-label="Settings">close</mat-icon>
+
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-12 table-paginate ">
+                <app-custom-pagination *ngIf='adminDetails && adminDetails.length' (pageChange)="pagechange($event)" id="1"
+                    maxSize="2" directionLinks="true" autoHide="false" [filteredLength]="filteredAdmins.length"
+                    [listLength]="listLength" [listPerPage]="itemsPerPage" [itemsPerPage]="numberOfElements">
+                </app-custom-pagination>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th class="col1">Name</th>
+                <th>Email</th>
+                <th>Contact number</th>
+                <th>Block</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="adminDetails && adminDetails.length">
+            <tr *ngFor="let adminObject of filteredAdmins |filter:listFilter | paginate: {totalItems:listLength,itemsPerPage: itemsPerPage, currentPage:page, id: '1'};  let i = index"
+                [ngClass]="{'disabledRow': !adminObject.enable}">
+                <td class="col1">
+                    <a *ngIf="!adminObject.enable" [title]="adminObject.subOperatorName">{{adminObject.subOperatorName}}</a>
+                    <a *ngIf="adminObject.enable" [routerLink]="['edit-admin']" [title]="adminObject.subOperatorName"
+                        (click)="userIdChange(adminObject.id)">{{adminObject.subOperatorName}}</a>
+                </td>
+                <td style="text-transform: none"><span [title]="adminObject.email">{{adminObject.email}}</span></td>
+                <td>{{adminObject.phone}}</td>
+                <td> <button mat-icon-button mat-button [title]="!adminObject.enable===true?'Unblock':'Block'" (click)="toggleAdminBlock(adminObject)">
+                        <mat-icon class="md-24" aria-label="Block" [style.color]="!adminObject.enable===true?'red':''">
+                            block
+                        </mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button mat-icon-button mat-button class="deleteBtn" title="Delete" (click)="adminDelete(adminObject.id, adminObject.subOperatorName)">
+                        <mat-icon class="md-24" aria-label="Delete">delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <td *ngIf="!filteredAdmins?.length" class="text-center" colspan="6"> No data available </td>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <div class="noUser" *ngIf="!(adminDetails && adminDetails.length)">No admins available</div>
+    <!-- <ng-container *ngIf="!(adminDetails && adminDetails.length); then thenTemplate; else elseTemplate"></ng-container> -->
+</div>

@@ -1,0 +1,280 @@
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  body {
+    background: #f5f6fa;
+  }
+  #wrapper {
+    padding: 90px 15px;
+  }
+  .navbar-expand-lg .navbar-nav.side-nav {
+    flex-direction: column;
+  }
+  .card {
+    margin-bottom: 15px;
+    border-radius: 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  .header-top {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  .leftmenutrigger,
+  .navbar-nav li a .shortmenu {
+    display: none;
+  }
+  .card-title {
+    font-size: 28px;
+  }
+  @media (min-width: 992px) {
+    #wrapper {
+      padding: 90px 15px 15px 75px;
+    }
+    .navbar-nav.side-nav:hover {
+      left: 0;
+    }
+    //   .side-nav li a {
+    //     padding: 20px;
+    //   }
+    .navbar-nav li a .shortmenu {
+      float: right;
+      display: block;
+      opacity: 1;
+    }
+    .navbar-nav.side-nav:hover li a .shortmenu {
+      opacity: 0;
+    }
+    .navbar-nav.side-nav {
+      background: #c53636;
+      box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 76px;
+      flex-direction: column !important;
+      left: -140px;
+      width: 200px;
+      overflow-y: auto;
+      bottom: 0;
+      overflow-x: hidden;
+      padding-bottom: 40px;
+    }
+    .min-92 {
+      min-height: 92px;
+    }
+  }
+  .animate {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  .navbar-nav li a svg {
+    font-size: 25px;
+    float: left;
+    margin: 0 10px 0 5px;
+  }
+  .side-nav li {
+    border-bottom: 1px solid #ea3232;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    color: rgb(255, 255, 255);
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    float: left;
+    width: 100%;
+    padding: 1rem
+  }
+  .active {
+    border-right: 4px solid #ffffff !important;
+  }
+  
+  .col-all-12 {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    margin: 0;
+    float: left;
+  }
+  .main-logo {
+    height: 50px;
+    width: auto;
+  }
+  
+  /*.......................Accounts .........................*/
+  
+  .accounts-page {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 0px;
+  }
+  .accounts-page h2 {
+    font-size: 40px;
+  }
+  .accounts-page h4 {
+    font-size: 20px;
+    color: #262626;
+    margin-bottom: 50px;
+    margin-top: 30px;
+  }
+  .accounts-page p {
+    font-size: 15px;
+    color: #59626a;
+  }
+  .accounts-page a {
+    color: #168eea;
+  }
+  .user {
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+    background-color: #ffffff;
+  }
+  .user i {
+    font-size: 30px;
+    color: #7d8aac;
+  }
+  .user h3 {
+    color: #262626;
+    font-size: 23px;
+  }
+  .account-dtls {
+    width: 100%;
+    height: auto;
+    float: left;
+  }
+  .gray-clr {
+    background: #f5f6f7;
+  }
+  .account-dtls .form-control {
+    border: none;
+    padding: 10px 15px;
+    height: auto;
+  }
+  .account-dtls .form-row {
+    margin-bottom: 10px;
+  }
+  .account-dtls .create-btn {
+    background: #786aff;
+    padding: 12px 20px;
+    border: none;
+    width: 130px;
+  }
+  .account-dtls .btn-text {
+    margin-right: 20px;
+    line-height: 48px;
+  }
+  
+  .main-login {
+    width: 100%;
+    height: 100vh;
+  }
+  .but-main {
+    background-color: #ee3f00;
+    color: #fff;
+  }
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+    position: relative;
+    top: 45%;
+    transform: translateY(-45%);
+  }
+  .form-signin .checkbox {
+    font-weight: 400;
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .label-head {
+    width: 100% !important;
+  }
+  
+  .switch-tggl {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+  
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+  
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: 0.4s;
+      transition: 0.4s;
+    }
+  
+    input:checked + .slider {
+      background-color: #259a38;
+    }
+  
+    input:focus + .slider {
+      box-shadow: 0 0 1px #259a38;
+    }
+  
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  

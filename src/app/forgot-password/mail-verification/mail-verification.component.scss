@@ -1,0 +1,62 @@
+.outer {
+  background-image: url("../../../assets/images/background.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.btn-defaul {
+  max-width: 250px;
+}
+
+img {
+  width: 350px;
+  height: auto;
+  /* cursor: pointer; */
+}
+
+.card {
+  margin-top: 35%;
+  border: 0px solid transparent;
+  box-shadow: none;
+  border-color: transparent !important;
+}
+
+:host /deep/ .mat-form-field-underline {
+  display: block;
+}
+
+:host /deep/ .mat-input-infix {
+  border: 0px solid transparent !important;
+}
+
+:host /deep/ .mat-focused .mat-form-field-underline {
+  border-color: green;
+}
+
+:host /deep/ .mat-form-field-ripple {
+  background-color: #3b3b48 !important;
+}
+
+.input-group-text {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.card-body {
+  text-align: left;
+}
+
+.card-body h4 {
+  text-align: left;
+  margin: 20px 0px 45px;
+}
+
+.card-body button {
+  border-radius: 25px !important;
+}
+
+:host /deep/ .mat-form-field-placeholder-wrapper {
+  left: 15px;
+}

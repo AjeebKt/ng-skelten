@@ -1,0 +1,90 @@
+<div class="page-for-forms">
+    <h4>{{ pageTitle }}</h4>
+    <div class="bg-white p-4">
+        <form role="form" name="form" [formGroup]="addEditAdminForm" appFocusOnError #focusOnError="appFocusOnError">
+            <div class="row">
+                <div class="col-md-4 col-sm-12 divs-for-input">
+                    <div class="form-group row">
+                        <label for="adminName" class="col-sm-12 col-form-label mandatory">Name</label>
+                        <div class="col-sm-12">
+                            <input appAutofocus appSpaceRemover spaceState="partial" appSplCharRemover notAllowState="number"
+                                formControlName="adminName" class="form-control" [ngClass]="{
+                          'has-danger': adminFormContorls.adminName.errors
+                        }"
+                                appValidatorTrigger>
+                            <show-errors [control]="adminFormContorls.adminName" field="Name"></show-errors>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4 col-sm-12 divs-for-input" *ngIf="!isEditAdmin">
+                    <div class="form-group row">
+                        <label for="adminUsername" class="col-sm-12 col-form-label mandatory">Username</label>
+                        <div class="col-sm-12">
+                            <input appSpaceRemover spaceState="full" appSplCharRemover notAllowState="special"
+                                formControlName="adminUsername" class="form-control" appValidatorTrigger [ngClass]="{
+                          'has-danger': adminFormContorls.adminUsername.errors
+                        }" />
+                            <show-errors [control]="adminFormContorls.adminUsername" field="Username"></show-errors>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-md-4 col-sm-12 divs-for-input">
+                    <div class="form-group row">
+                        <label for="adminEmail" class="col-sm-12 col-form-label mandatory">Email</label>
+                        <div class="col-sm-12">
+                            <input appSpaceRemover spaceState="full" formControlName="adminEmail" emailValidator class="form-control"
+                                [ngClass]="{
+                                  'has-danger': adminFormContorls.adminEmail.errors
+                                }"
+                                autocomplete="e-mail" appValidatorTrigger>
+                            <show-errors [control]="adminFormContorls.adminEmail" field="Email"></show-errors>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 divs-for-input" *ngIf="!isEditAdmin">
+                    <div class="form-group row">
+                        <label for="newPassword" class="col-sm-12 col-form-label mandatory"> Password
+                           </label>
+                        <div class="col-sm-12">
+                            <input type="password" appSplCharRemover notAllowState="special" appSpaceRemover spaceState="full"
+                                formControlName="newPassword" class="form-control" [ngClass]="{
+                              'has-danger': adminFormContorls.newPassword.errors
+                            }"
+                                appValidatorTrigger>
+                            <show-errors [control]="adminFormContorls.newPassword" field="Password"></show-errors>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 divs-for-input" *ngIf="!isEditAdmin">
+                    <div class="form-group row">
+                        <label for="confirmPassword" class="col-sm-12 col-form-label mandatory">Confirm password</label>
+                        <div class="col-sm-12">
+                            <input type="password" notAllowState="special" appSplCharRemover appSpaceRemover spaceState="full"
+                                formControlName="confirmPassword" class="form-control" [ngClass]="{
+                                'has-danger': adminFormContorls.confirmPassword.errors
+                              }"
+                                appValidatorTrigger>
+                            <show-errors [control]="adminFormContorls.confirmPassword" field="Confirm password">
+                            </show-errors>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12 divs-for-input">
+                    <div class="form-group row">
+                        <label for="contactNumber" class="col-sm-12 col-form-label">Contact number</label>
+                        <div class="col-sm-12">
+                            <intl-tel-input class="form-control" style="border: 0px;padding:0px;" formControlName="contactNumber"
+                                name="first" appValidatorTrigger></intl-tel-input>
+                            <show-errors [control]="adminFormContorls.contactNumber" field="Contact number">
+                            </show-errors>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="right-page-btns">
+            <button type="submit" class="btn btn-defaul" appButtonSubmit [form]="focusOnError" (submission)="onSubmit()">{{submitText}}</button>
+            <button type="button" class="btn btn-defaul" (click)="cancelAddAdmin()">Cancel</button>
+        </div>
+    </div>
+</div>

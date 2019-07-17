@@ -1,0 +1,41 @@
+/* container setup */
+
+:host/deep/ .mat-drawer-content {
+    background: #ffffff;
+    background-color: #ffffff;
+}
+
+.content-container {
+    height: 100vh;
+}
+
+.sidenav {
+    width: 255px;
+     background: #3b3b48;
+    background-image: url("../../assets/images/sidenav.png");
+    background-size: cover;
+}
+
+button:focus {
+    outline: none;
+    outline: none;
+}
+
+.side-toggle-btn {
+    margin-left: 3px;
+}
+
+.side-toggle-btn mat-icon {
+    color: #828385;
+}
+
+.route-pages {
+    margin-top: 30px;
+}
+
+
+/* container setup */
+
+.search-box button {
+    padding: 5px;
+}

@@ -1,0 +1,76 @@
+@import "../../../node_modules/bootstrap/scss/mixins";
+@mixin r( $point ) {
+    @if $point==239 {
+        @media ( max-width: 239px ) {
+            @content;
+        }
+    }
+    @if $point==319 {
+        @media ( max-width: 319px ) {
+            @content;
+        }
+    }@if $point==388 {
+        @media ( max-width: 388px ) {
+            @content;
+        }
+    } 
+    @if $point==479 {
+        @media ( max-width: 479px ) {
+            @content;
+        }
+    } @if $point==575 {
+        @media ( max-width: 575px ) {
+            @content;
+        }
+    }
+    @if $point==575 {
+        @media ( max-width: 575px ) {
+            @content;
+        }
+    }
+    @if $point==599 {
+        @media ( max-width: 599px ) {
+            @content;
+        }
+    }
+    @if $point==767 {
+        @media ( max-width: 767px ) {
+            @content;
+        }
+    }
+    @if $point==991 {
+        @media ( max-width: 991px ) {
+            @content;
+        }
+    }
+    @if $point==1023 {
+        @media ( max-width: 1023px ) {
+            @content;
+        }
+    }
+    @if $point==1139 {
+        @media ( max-width: 1139px ) {
+            @content;
+        }
+    }
+    @if $point==1199 {
+        @media ( max-width: 1199px ) {
+            @content;
+        }
+    }
+    @if $point==1279 {
+        @media ( max-width: 1279px ) {
+            @content;
+        }
+    }
+    @if $point==1499 {
+        @media ( max-width: 1499px ) {
+            @content;
+        }
+    }
+    @if $point==1735 {
+        @media ( max-width: 1735px ) {
+            @content;
+        }
+    }
+}

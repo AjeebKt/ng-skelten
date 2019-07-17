@@ -1,0 +1,92 @@
+<div class="clearfix mb-3">
+    <app-overview [refreshData]="refreshFlag"></app-overview>
+</div>
+
+<div class="clearfix bg-white p-3">
+    <div class="row title-sec" style="padding: 10px 0 6px;">
+        <h4 class="left-align col-lg-3 col-xs-12">{{pageTitle}}</h4>
+        <div class="right-page-btns col-lg-9 col-xs-12">
+            <!-- <button class="btn btn-cl-primary btn-sm " style="margin-right:15px"type="button" (click)="inviteUsers()"  >Invite user</button> -->
+            <button class="btn btn-cl-primary btn-sm m-0" type="button" [routerLink]="['user/add-user']">Add
+                user</button>
+        </div>
+    </div>
+
+    <div class="options-for-table">
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 col-sm-12">
+                <button [disabled]="!(users && users.length)" class="btn table-head-btns same-line-btns" title="Refresh"
+                    (click)="refresh()">
+                    <mat-icon class="md-24" aria-label="Settings">refresh</mat-icon>
+                </button>
+                <div class="search-box same-line-btns col-xs-12">
+                    <!-- [disabled]="!(users && users.length)" -->
+                    <input appAutofocus class="form-control mr-sm-2" type="text" placeholder="Search by Name"
+                        aria-label="Search" (ngModelChange)="onSearchValueChange($event,0)" [(ngModel)]="listFilter">
+                    <button (click)="clearSearchInput()" class="btn my-2 my-sm-0" type="submit">
+                        <mat-icon class="md-24" *ngIf="!listFilter" aria-label="Settings">search</mat-icon>
+                        <mat-icon class="md-24" *ngIf="listFilter" aria-label="Settings">close</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-sm-12 table-paginate ">
+                <app-custom-pagination *ngIf='users && users.length' (pageChange)="pagechange($event)" id="1" maxSize="2"
+                    directionLinks="true" autoHide="false" [filteredLength]="filteredusers.length" [listLength]="listLength"
+                    [listPerPage]="itemsPerPage" [itemsPerPage]="numberOfElements">
+                </app-custom-pagination>
+            </div>
+        </div>
+
+    </div>
+    <table class="table table-responsive shadow">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Start date</th>
+                <th>Expiry date</th>
+                <th>Subscription Status</th>
+                <th>Block</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of filteredusers |  paginate: {totalItems:listLength,itemsPerPage: itemsPerPage, currentPage: page,  id: '1'}; let i = index;"
+                [ngClass]="{'disabledRow': !user.enabled}">
+                <td>
+                    <a *ngIf="!user.enabled" [title]="user.patientName">
+                        {{user.patientName?user.patientName:'--'}}</a>
+                    <a *ngIf="user.enabled" [title]="user.patientName" style="cursor: pointer;" (click)="userIdChange(user.id)">
+                        {{user.patientName?user.patientName:'--'}}</a>
+                </td>
+                <td>{{user.gender | titlecase}}</td>
+                <td>{{user.createdDate | date: 'dd-MM-yyyy'}}</td>
+                <td>{{user.subscription.subscriptionEndDate ?(user.subscription.subscriptionEndDate| date:
+                    'dd-MM-yyyy'):'--'}}</td>
+                <td>
+                    <mat-slide-toggle class="packageStatus" (change)="changePackage($event,user)" [color]="pkgColor"
+                        [checked]="user.subscription.enabled">
+                    </mat-slide-toggle>
+                </td>
+
+                <td>
+                    <button mat-icon-button mat-button [title]="!user.enabled?'Unblock':'Block'" (click)="userBlockClick(user)">
+                        <mat-icon class="md-24" aria-label="Block" [style.color]="!user.enabled?'red':''">block
+                        </mat-icon>
+                    </button>
+                </td>
+                <td>
+                    <button mat-icon-button mat-button class="deleteBtn" title="Delete" (click)="userDeleteClick(user.id,user.patientName)">
+                        <mat-icon class="md-24" aria-label="Delete">delete</mat-icon>
+                    </button>
+                </td>
+            </tr>
+            <td *ngIf="!filteredusers?.length && !(!(users && users.length))" class="text-center" #elseTemplate colspan="9">
+                No data available </td>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+    <div class="noUser" *ngIf='!(users && users.length)' #thenTemplate>No users available</div>
+    <!-- <ng-container *ngIf="!(users && users.length) then thenTemplate; else elseTemplate"></ng-container> -->
+</div>

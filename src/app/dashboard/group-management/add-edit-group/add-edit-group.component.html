@@ -1,0 +1,84 @@
+<div class="page-for-forms">
+  <h4>{{ pageTitle }}</h4>
+  <div class="bg-white p-4">
+
+    <div class="row">
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="form-group row">
+          <label for="groupName" class="col-sm-12 col-form-label mandatory">Group name</label>
+          <div class="col-sm-12">
+            <form role="form" name="form" [formGroup]="addEditGroupForm" appFocusOnError #focusOnError="appFocusOnError">
+              <input appAutofocus appSpaceRemover spaceState="partial" appSplCharRemover formControlName="groupName"
+                class="form-control" [ngClass]="{
+                  'has-danger': userFormContorls.groupName.errors
+                }"
+                appValidatorTrigger />
+              <show-errors [control]="userFormContorls.groupName" field="Group name"></show-errors>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12 divs-for-input">
+        <div class="left-align" style="padding-top: 37px;">
+          <button appButtonSubmit [form]="focusOnError" (submission)="onSubmit()" class="btn btn-defaul">{{submitText}}</button>
+          <button class="btn btn-defaul" (click)="cancelAddGroup()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class=" topmargin">
+      <h4>{{ tableTitle }}</h4>
+
+      <div class="options-for-table">
+        <div class="row">
+          <div class="col-lg-12 col-sm-12 table-paginate ">
+            <app-custom-pagination *ngIf="patientList && patientList.length" (pageChange)="pagechange($event)" id="1"
+              maxSize="2" directionLinks="true" autoHide="false" [listLength]="patientList.length" 
+              [listPerPage]="itemsPerPage" [itemsPerPage]="numberOfElements">
+            </app-custom-pagination>
+
+
+            <!-- <app-custom-pagination *ngIf='users && users.length' (pageChange)="pagechange($event)" id="1" maxSize="2"
+              directionLinks="true" autoHide="false" [filteredLength]="filteredusers.length" [listLength]="listLength"
+              [listPerPage]="itemsPerPage" [itemsPerPage]="numberOfElements">
+            </app-custom-pagination> -->
+
+
+          </div>
+        </div>
+      </div>
+      <table class="table table-responsive" *ngIf="patientList && patientList.length">
+        <thead>
+          <tr>
+            <th class="col1">
+              <input type="checkbox" name="userSelect" (change)="checkBoxAllSelectionOfUsers(patientList, $event)"
+                [checked]="checkAllButtonStatus" />
+            </th>
+            <th>Name</th>
+            <th>Gender</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr [ngClass]="{'disabledRow': userObject.blocked}" *ngFor="
+              let userObject of (patientList
+                | paginate: {totalItems:listLength,itemsPerPage: itemsPerPage, currentPage: page,  id: '1'});
+              let i = index
+            ">
+            <td class="col1">
+              <input type="checkbox" name="userSelect" (change)="checkBoxSingleSeletionOfUser()" [(ngModel)]="userObject.selected" />
+            </td>
+            <td [title]="userObject.patientName">{{ userObject.patientName }}</td>
+            <td>{{ userObject.gender | titlecase }}</td>
+          </tr>
+        </tbody>
+        <tfoot></tfoot>
+      </table>
+      <div *ngIf="patientList?.length == 0" class="noUser">
+        No users available
+      </div>
+    </div>
+  </div>
+</div>

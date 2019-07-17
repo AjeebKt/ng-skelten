@@ -1,0 +1,123 @@
+
+body {overflow-x: hidden; background: #f0f5fb; }
+
+#sidebar-wrapper {min-height: 100vh;margin-left: -15rem;-webkit-transition: margin .25s ease-out;
+-moz-transition: margin .25s ease-out;-o-transition: margin .25s ease-out;transition: margin .25s ease-out;}
+
+#sidebar-wrapper .sidebar-heading {padding: 0.875rem 1.25rem;font-size: 1.2rem;}
+#sidebar-wrapper .list-group {width: 15rem;}
+#page-content-wrapper {min-width: 100%;}
+#wrapper.toggled #sidebar-wrapper {margin-left: 0;}
+
+
+.logo-outer{ width:100%; height: auto; margin: 0px;  padding: 10px 0; z-index:100 ; float: left; border-bottom: 1px solid #ebebeb; background: #fff; position: relative;}
+.logo-outer img{ text-align: center; max-width: 300px; padding: 0 40px} 
+.bg-outer{ width: 100%; height:auto; float: left; margin: 0; position: relative;  z-index:-1;} 
+.bg-outer span{ color: #fff; float:right; position: absolute; top: 50%;  transform: translateY(-50%); font-weight: bold; font-size:20px;}
+.srch-outer ul{ float: left; margin: 0}
+.srch-outer{ width: 100%; height: auto; float: left; margin:0; z-index: 105; background: #fff; padding:15px 15px 11px; border: 1px solid #f1f1f1; position: relative; box-shadow: 0px 1px 4px -3px #000;}
+.srch-outer i{ float: left; line-height:36px}
+.srch-filter{ width: auto; height: auto; float: left; margin: 0 5px 0px; padding: 7px 20px; background: #0593d2; color: #fff; list-style: none;font-size: 15px; border-radius: 5px;}
+.srch-filter i{ float: right; line-height: 22px !important; margin-left:5px; position: relative; right: -5px; cursor: pointer; }
+.filter-area{ width: 100%; height: auto; float: left; margin: 0;}
+.dropdown-filter{ max-width:97px; height: auto; margin:15px 0px 0px 15px; }
+.dropdown-filter .form-group { margin: 0 !important;}
+.dropdown-filter .form-control{ border-radius: 5px !important; border: 1px solid #f1f1f1 !important; height: 40px !important;}
+.srch-results{ width: 100%; height: auto; float: left; margin:15px 0; background: #fff; box-shadow: 0px 1px 4px -3px #000;}
+.srch-results table tr td img{ max-width: 40px; float: left; margin-right:10px; border: 1px solid #f1f1f1; }
+.srch-results table tr td h4{ font-size: 16px; margin: 0;}
+.srch-results table tr td p{ font-size: 14px; text-overflow: ellipsis;  white-space: nowrap; overflow: hidden; margin-bottom: 5px;}
+.srch-results table tr td:first-child{ max-width:250px;}
+.srch-results table tr td:nth-child(2){ max-width: 250px;}
+.srch-results table tr td{ padding-bottom:0 ;}
+.pagination-area{ width: 100%; height: auto; float: left; margin:0; padding: 10px; border: 1px solid #f1f1f1; background: #fff; box-shadow: 0px 1px 4px -3px #000; border-radius: 5px;}
+.pagination-area .pagination li{ padding: 5px 10px; border: 1px solid #f1f1f1; margin-right: -1px;}
+.pagination-area .pagination li a{ color: #000;}
+.pagination-area .pagination li:hover{ background: #0593d2;}
+.pagination-area .pagination li:hover a{ color: #fff;}
+.table-striped tbody tr:nth-of-type(odd){ background: #fbfbfb;}
+.pagination-area .pagination{ margin: 0;}
+.pagination-area span{ line-height: normal; position: relative; top: 5px;}
+.dwld-btn{ float: right;}
+.dwld-btn button{ border-radius: 0; background:none;}
+.dwld-btn button:hover{ background: #ebebeb;}
+
+.dwld-btn i{ float: right; font-size: 12px; line-height: 25px; color: #0593d2;}
+.account-drp{ width: auto; height: auto; float: right; position: absolute; right:24px; top:15px;}
+.account-drp .nav-link{ color: #000; position: relative; top:0px;}
+.copyrights{ width: 100%; height: auto; float: left; text-align: center; padding: 20px 0;}
+#page-content-wrapper .container-fluid{ padding: 0 20px}
+.counter-otr{ width: 100%; height: auto; float: left; margin: 0px 15PX; padding:0px 0 45px;}
+.counter-otr i, .counter-otr h2, .counter-otr p{ color: #0593d2}
+.counter-otr p{ font-size: 20px;}
+.counter-otr h2{ font-weight: 800; color: #000}
+.counter-otr i{ font-size: 38px; margin-bottom: 10px}
+.right-dropdown{ width: 100%; height: auto; float: left; margin: 30px 0;}
+.right-dropdown select{text-transform: capitalize; font-size: 16px; margin-bottom: 15px} 
+
+.counter{ padding: 20px 0; border-radius: 5px; background: #fff !important; box-shadow: 0px 1px 4px -3px #000;}
+.light-blue{ background: #86daff;}
+.light-red{ background: #ee9db5;}
+.light-cyan{ background: #6cdeee;}
+.light-yellow{ background: #eacc8a;}
+.light-green{ background: #77e18b;}
+
+
+.sidenav {height: 100%;width:300px;position: fixed;z-index: 1030;top: 0;left: 0;background-color: #0593d2;overflow-x: hidden;transition: 0.5s;padding-top: 0px; display: block; box-shadow: 0 16px 38px -12px rgba(0,0,0,.56),0 4px 25px 0 rgba(0,0,0,.12),0 8px 10px -5px rgba(0,0,0,.2);}
+.sidenav a {padding: 8px 8px 8px 32px;text-decoration: none;font-size: 17px;color: #000;transition: 0.3s;}
+.sidenav a:hover {color: #f1f1f1;}
+.sidenav .closebtn {position: absolute;top: -5px;right:8px;font-size: 36px;margin-left: 50px;}
+.menu-open{ font-size: 26px; cursor: pointer; position: relative; left: 10px; top: 10px; background: #e3edf9; padding: 2px 11px 4px; border-radius: 5px; margin-bottom: 10px; display: inline-block;}
+.M-logo{ background: #fff; padding: 10px; width: 100%;}
+
+
+.owl-carousel{ width: 98.4% !important;}
+.owl-carousel .item{ margin: 0 15px;}
+.owl-controls{ display: none !important;}
+
+
+#main {
+transition: margin-left .5s;
+padding: 16px; margin-left: 300px;
+}
+
+
+
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+@media only screen and (max-width:767px) {
+	#main{ margin-left: 0;}
+	.sidenav{ width: 0}
+	.sidenav .closebtn{ z-index: 1050;}
+	.owl-carousel .item{ margin-left: 0}
+	.left-sidebar{ margin-left: 0;}
+	#page-content-wrapper .container-fluid{ padding: 0}
+    .logo-outer img{ max-width: 150px; padding: 0;}
+    .bg-outer{ margin-top: -25px; height: auto;}
+    .account-drp .nav-link{ top: 3px;}
+    .srch-outer ul{ float: none;}
+    .dwld-btn{ float: left; margin-left:45px}
+    .srch-filter{ margin-bottom: 10px;}
+  }
+
+
+@media (min-width: 768px) {
+#sidebar-wrapper {
+margin-left: 0;
+}
+
+#page-content-wrapper {
+min-width: 0;
+width: 100%;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+margin-left: -15rem;
+}
+}

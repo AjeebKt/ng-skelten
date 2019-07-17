@@ -1,0 +1,70 @@
+<div class="bg-outer">
+  <div class="overview-page">
+    <h2 class="pb-5">Overview</h2>
+    <div class="row">
+      <div class="col-xl-6 col-12 overview-bigcard">
+        <div class="ecard shadow">
+          <div class="col-md-2 float-left text-center"><i class="fas fa-users"></i>
+            <h4 class="font-weight-regular p-2">{{data?.totalUsersCount}}</h4>
+          </div>
+          <div class="col-md-6 float-left card-big">
+            <div class="clearfix">
+              <span class="float-left w-auto cls-renew">Renewed Users</span>
+              <h2 class="font-weight-bold float-right pr-2">{{data?.renewedUsersCount}}</h2>
+            </div>
+            <div class="clearfix">
+              <span class="float-left w-auto cls-renew">Unsubscribed Users</span>
+              <h2 class="font-weight-bold float-right pr-2">{{data?.unsubscribedUsers}}</h2>
+            </div>
+            <div class="clearfix">
+              <span class="float-left w-auto cls-renew">New Users</span>
+              <h2 class="font-weight-bold float-right pr-2">{{data?.newUsersCount}}</h2>
+            </div>
+
+            <span class="float-left w-auto cls-renew">Growth</span>
+            <p *ngIf="growthBy >= 0" class="color-green w-100 float-left"><i class="fas fa-long-arrow-alt-up"></i>
+              {{growthBy}}</p>
+            <p *ngIf="growthBy < 0" class="colo-red w-100 float-left"><i class="fas fa-long-arrow-alt-down"></i>
+              {{growthBy}}</p>
+          </div>
+          <div class="col-md-4 float-left card-big">
+            <div class="form-group">
+              <select class="form-control shadow" id="exampleFormControlSelect1">
+                <option>This Month</option>
+              </select>
+            </div>
+            <div class="pt-3">
+              <!-- <i class="fas fa-dollar-sign bl-icon "></i> -->
+              <h3>${{data?.totalRevenue | number:'1.0-6'}}</h3>
+            </div><span class="w-auto float-right">Total Revenue</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-12">
+        <div class="row">
+          <div class="col-md-6 float-left">
+            <div class="ecard shadow p-3"><i class="fas fa-user bl-icon"></i>
+              <h3>{{data?.subAdminCount}}</h3><span class="text-con">Total Admins</span>
+            </div>
+          </div>
+          <div class="col-md-6 float-left">
+            <div class="ecard shadow p-3"><i class="fas fa-user l-or-icon"></i>
+              <h3 class="orange-clr">{{data?.freeTrailCount}}</h3><span class="text-con">Free Trial
+                Users</span>
+            </div>
+          </div>
+          <div class="col-md-6 float-left">
+            <div class="ecard shadow p-3"><i class="fas fa-user bl-icon"></i>
+              <h3>{{data?.groupCount}}</h3><span class="text-con">Total Groups</span>
+            </div>
+          </div>
+          <div class="col-md-6 float-left">
+            <div class="ecard shadow p-3"><i class="fas fa-user blue-clr-icon"></i>
+              <h3 class="blue-clr">{{data?.blockedCount}}</h3><span class="text-con">Blocked Users</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

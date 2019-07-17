@@ -1,0 +1,6 @@
+@import "../../../../assets/scss/resaas";
+.table-responsive {
+  @include r(479) {
+    display: table;
+  }
+}
