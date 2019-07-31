@@ -1,24 +1,23 @@
 <div class="card-header" [attr.id]="'heading'+menuItem.id">
   <h5 class="mb-0" *ngIf="!menuItem.route" (click)="toggleOpen($event);">
-    <button #button class="btn btn-link " type="button" [attr.aria-expanded]="isOpen" [attr.data-target]="'#collapse'+menuItem.id"
+    <button #button class="btn btn-link " type="button" [attr.aria-expanded]="isOpen"
+      [attr.data-target]="'#collapse'+menuItem.id" [ngClass]="{'arrow-show': !!menuItem.submenu}">
+      <img class="icon-style" alt="User" [src]="menuItem.icon" /> {{menuItem.text}}
+    </button>
+  </h5>
+  <h5 class="mb-0" *ngIf="menuItem.route" (click)="toggleOpen($event);">
+    <button #button class="btn btn-link " type="button" [attr.aria-expanded]="isOpen"
+      [attr.data-target]="'#collapse'+menuItem.id" [routerLink]="menuItem.route" routerLinkActive="active"
       [ngClass]="{'arrow-show': !!menuItem.submenu}">
       <img class="icon-style" alt="User" [src]="menuItem.icon" /> {{menuItem.text}}
     </button>
- 
   </h5>
-  <h5 class="mb-0" *ngIf="menuItem.route" (click)="toggleOpen($event);">
-
-    <button #button class="btn btn-link " type="button" [attr.aria-expanded]="isOpen" [attr.data-target]="'#collapse'+menuItem.id"
-      [routerLink]="menuItem.route" routerLinkActive="active" [ngClass]="{'arrow-show': !!menuItem.submenu}">
-      <img class="icon-style" alt="User" [src]="menuItem.icon" /> {{menuItem.text}}
-    </button>
-  </h5>
-
 </div>
 
 <ng-container *ngFor="let submenu of menuItem.submenu">
-  <app-nav-item [attr.id]="'#collapse'+menuItem.id" [attr.aria-labelledby]="'heading'+menuItem.id" *ngIf="submenu.type==='item'"
-    [item]="submenu" [ngClass]="{'collapse show': isOpen}" [@slideInOut]="isOpen"></app-nav-item>
+  <app-nav-item [attr.id]="'#collapse'+menuItem.id" [attr.aria-labelledby]="'heading'+menuItem.id"
+    *ngIf="submenu.type==='item'" [item]="submenu" [ngClass]="{'collapse show': isOpen}" [@slideInOut]="isOpen">
+  </app-nav-item>
   <app-nav-collapse *ngIf="submenu.type==='collapse'" [menuItem]="submenu"></app-nav-collapse>
   <app-nav-group *ngIf="submenu.type==='group'" [item]="submenu"></app-nav-group>
 </ng-container>

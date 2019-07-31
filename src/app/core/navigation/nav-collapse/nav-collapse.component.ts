@@ -24,15 +24,14 @@ export class NavCollapseComponent implements OnInit, AfterViewInit {
     private renderer: Renderer2
   ) {
     // Listen for route changes
+
     router.events.pipe(filter((routeEvent) => routeEvent instanceof NavigationEnd)).subscribe(
       (event: NavigationEnd) => {
         // Check if the url can be found in
         // one of the children of this item
         if (this.isUrlInChildren(this.menuItem, event.urlAfterRedirects)) {
-
           this.expand();
         } else {
-
           this.collapse();
         }
 
