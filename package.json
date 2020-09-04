@@ -43,7 +43,7 @@
     "ngx-mydatepicker": "^2.4.9",
     "ngx-pagination": "^3.2.1",
     "ngx-toastr": "^10.0.4",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "popper.js": "^1.14.6",
     "rxjs": "~6.3.3",
